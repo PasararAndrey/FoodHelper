@@ -11,7 +11,15 @@
         android:label="RecipeSearchFragment"
         tools:layout="@layout/fragment_recipe_search">
 
+        <action
+            android:id="@+id/action_recipeSearchFragment_to_filterSearchFragment"
+            app:destination="@id/filterSearchFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/filterSearchFragment"
+        android:name="com.example.foodhelper.ui.FilterSearchFragment"
+        android:label="FilterSearchFragment"
+        tools:layout="@layout/fragment_filter_search" />
 
 
 </navigation>

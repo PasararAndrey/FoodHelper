@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <RelativeLayout
+            android:id="@+id/rl_cuisines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="fill|end"
-            android:orientation="horizontal">
+            android:layout_marginEnd="28dp">
 
 
             <TextView
@@ -30,6 +30,7 @@
                 android:textAppearance="@style/TextAppearance.FoodHelper.Headline4" />
 
             <TextView
+                android:id="@+id/tv_see_all_cuisines"
                 style="@style/Widget.FoodHelper.TextView.SeeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,26 +41,26 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cuisines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@id/rl_cuisines"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            tools:itemCount="26"
+            tools:itemCount="3"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/rv_filter_item"
             tools:spanCount="3" />
 
         <RelativeLayout
+            android:id="@+id/rl_diets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/rv_cuisines"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="fill|end"
-            android:orientation="horizontal">
-
+            android:layout_marginEnd="28dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,6 +71,7 @@
                 android:textAppearance="@style/TextAppearance.FoodHelper.Headline4" />
 
             <TextView
+                android:id="@+id/tv_see_all_diets"
                 style="@style/Widget.FoodHelper.TextView.SeeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,26 +81,26 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_diets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@id/rl_diets"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            tools:itemCount="11"
+            tools:itemCount="3"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/rv_filter_item"
             tools:spanCount="3" />
 
         <RelativeLayout
+            android:id="@+id/rl_intolerances"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/rv_diets"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="fill|end"
-            android:orientation="horizontal">
-
+            android:layout_marginEnd="28dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,6 +111,7 @@
                 android:textAppearance="@style/TextAppearance.FoodHelper.Headline4" />
 
             <TextView
+                android:id="@+id/tv_see_all_intolerances"
                 style="@style/Widget.FoodHelper.TextView.SeeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,16 +121,49 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_intolerances"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_below="@id/rl_intolerances"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            tools:itemCount="16"
+            android:layout_marginBottom="246dp"
+            tools:itemCount="3"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/rv_filter_item"
             tools:spanCount="3" />
-    </LinearLayout>
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_actions"
+            style="@style/Widget.FoodHelper.CardView.FilterPlatform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-2dp"
+            android:layout_marginEnd="-2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Widget.FoodHelper.Button.SearchReset"
+                    android:layout_width="160dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="16dp"
+                    android:text="reset" />
+
+                <Button
+                    style="@style/Widget.FoodHelper.Button.SearchApply"
+                    android:layout_width="160dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="16dp"
+                    android:text="apply" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
 </androidx.core.widget.NestedScrollView>

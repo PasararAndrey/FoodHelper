@@ -6,11 +6,12 @@
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/bg_ib_recipe_search_filter.xml" value="0.28177083333333336" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/bg_searchview.xml" value="0.28177083333333336" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/bg_tv_filter_item.xml" value="0.36770833333333336" />
+        <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/bg_tv_filter_item_outlined.xml" value="0.23541666666666666" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.28177083333333336" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.28177083333333336" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.28177083333333336" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20885416666666667" />
-        <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/fragment_filter_search.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/fragment_filter_search.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/fragment_recipe_search.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/rv_filter_item.xml" value="0.67" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/rv_search_recipe.xml" value="0.22" />
