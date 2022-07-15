@@ -150,6 +150,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_reset"
                     style="@style/Widget.FoodHelper.Button.SearchReset"
                     android:layout_width="160dp"
                     android:layout_height="56dp"
@@ -157,6 +158,7 @@
                     android:text="reset" />
 
                 <Button
+                    android:id="@+id/btn_apply"
                     style="@style/Widget.FoodHelper.Button.SearchApply"
                     android:layout_width="160dp"
                     android:layout_height="56dp"
