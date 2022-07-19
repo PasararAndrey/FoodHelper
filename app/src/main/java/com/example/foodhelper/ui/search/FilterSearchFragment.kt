@@ -25,7 +25,7 @@ class FilterSearchFragment : Fragment(R.layout.fragment_filter_search) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        requireContext().applicationComponent.inject(this)
+        requireContext().applicationComponent.inject(this@FilterSearchFragment)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

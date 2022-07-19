@@ -4,4 +4,8 @@
     <string name="cd_iv_search_recipe_image">recipe image</string>
     <string name="tv_filter_search_see_all">see all</string>
     <string name="tv_filter_search_hide">hide</string>
+    <string name="rv_search_recipe_calories_default">calories: not defined</string>
+    <string name="rv_search_recipe_calories">calories: %s</string>
+    <string name="rv_search_recipe_protein_default">protein: not defined</string>
+    <string name="rv_search_recipe_protein">protein: %s</string>
 </resources>

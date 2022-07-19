@@ -3,10 +3,17 @@ package com.example.foodhelper.ui.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.foodhelper.data.RecipeRepository
 import com.example.foodhelper.model.FilterSearchItem
+import com.example.foodhelper.model.RecipePreview
+import kotlinx.coroutines.launch
+import org.w3c.dom.ls.LSException
 import javax.inject.Inject
 
-class RecipeSearchViewModel @Inject constructor() : ViewModel() {
+class RecipeSearchViewModel @Inject constructor(
+    private val recipeRepository: RecipeRepository,
+) : ViewModel() {
     private var _isExpandedCuisines = MutableLiveData(false)
     val isExpandedCuisines: LiveData<Boolean> get() = _isExpandedCuisines
     private var _isExpandedDiets = MutableLiveData(false)
@@ -14,8 +21,11 @@ class RecipeSearchViewModel @Inject constructor() : ViewModel() {
     private var _isExpandedIntolerances = MutableLiveData(false)
     val isExpandedIntolerances: LiveData<Boolean> get() = _isExpandedIntolerances
 
+    private var _recipes = MutableLiveData<List<RecipePreview>>(emptyList())
+    val recipes: LiveData<List<RecipePreview>> get() = _recipes
+
     private val cuisinesList = mutableListOf(
-        FilterSearchItem(true, "African"),
+        FilterSearchItem(false, "African"),
         FilterSearchItem(false, "American"),
         FilterSearchItem(false, "British"),
         FilterSearchItem(false, "Cajun"),
@@ -46,7 +56,7 @@ class RecipeSearchViewModel @Inject constructor() : ViewModel() {
     val cuisines: LiveData<List<FilterSearchItem>> get() = _cuisines
 
     private val dietsList = mutableListOf(
-        FilterSearchItem(true, "Gluten Free"),
+        FilterSearchItem(false, "Gluten Free"),
         FilterSearchItem(false, "Ketogenic"),
         FilterSearchItem(false, "Vegetarian"),
         FilterSearchItem(false, "Lacto-Vegetarian"),
@@ -63,7 +73,7 @@ class RecipeSearchViewModel @Inject constructor() : ViewModel() {
 
 
     private val intolerancesList = mutableListOf(
-        FilterSearchItem(true, "Dairy"),
+        FilterSearchItem(false, "Dairy"),
         FilterSearchItem(false, "Egg"),
         FilterSearchItem(false, "Gluten"),
         FilterSearchItem(false, "Grain"),
@@ -145,4 +155,33 @@ class RecipeSearchViewModel @Inject constructor() : ViewModel() {
         resizeDiets(_isExpandedDiets.value ?: false)
         resizeIntolerances(_isExpandedIntolerances.value ?: false)
     }
+
+    fun searchRecipes(query: String) {
+        val cuisines: List<String> = cuisinesList.filter {
+            it.isChecked
+        }.map {
+            it.itemText
+        }
+        val diets: List<String> = dietsList.filter {
+            it.isChecked
+        }.map {
+            it.itemText
+        }
+        val intolerances: List<String> = intolerancesList.filter {
+            it.isChecked
+        }.map {
+            it.itemText
+        }
+        viewModelScope.launch {
+            val searchResult: List<RecipePreview>? = recipeRepository.searchRecipes(
+                query = query,
+                cuisines = cuisines,
+                diets = diets,
+                intolerances = intolerances
+            )
+            _recipes.value = searchResult ?: emptyList()
+        }
+    }
+
+
 }

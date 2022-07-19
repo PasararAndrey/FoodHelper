@@ -13,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="horizontal">
@@ -34,10 +35,16 @@
             android:src="@drawable/ic_baseline_filter_list_24" />
     </LinearLayout>
 
+    <include
+        android:id="@+id/layout_empty_search"
+        layout="@layout/search_recipe_empty_list"
+        tools:visibility="gone" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recipes_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
         tools:listitem="@layout/rv_search_recipe" />
 
 </LinearLayout>
