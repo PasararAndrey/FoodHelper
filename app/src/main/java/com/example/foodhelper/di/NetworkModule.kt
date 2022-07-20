@@ -1,6 +1,7 @@
 package com.example.foodhelper.di
 
 import com.example.foodhelper.data.RecipeAPi
+import com.example.foodhelper.data.calladapter.NetworkResultCallAdapterFactory
 import com.example.foodhelper.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -23,6 +24,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(NetworkResultCallAdapterFactory.create())
             .client(client.build())
             .build()
     }

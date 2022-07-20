@@ -1,4 +1,4 @@
-package com.example.foodhelper.data.recipesearch
+package com.example.foodhelper.model.remote.recipesearch
 
 
 import com.google.gson.annotations.SerializedName

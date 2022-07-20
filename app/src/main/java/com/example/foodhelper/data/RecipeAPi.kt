@@ -1,6 +1,7 @@
 package com.example.foodhelper.data
 
-import com.example.foodhelper.data.recipesearch.RecipeSearchDto
+import com.example.foodhelper.data.util.ApiResult
+import com.example.foodhelper.model.remote.recipesearch.RecipeSearchDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -19,7 +20,7 @@ interface RecipeAPi {
         @Query("intolerances") intolerances: String? = null,
         @Query("number") amount: Int = 5,
         @Query("minProtein") proteins: Int = 10,
-        @Query("minCalories") calories: Int = 50
-    ): Response<RecipeSearchDto>
+        @Query("minCalories") calories: Int = 50,
+    ): ApiResult<RecipeSearchDto>
 
 }

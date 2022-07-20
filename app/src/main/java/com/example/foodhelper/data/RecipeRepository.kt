@@ -1,8 +1,12 @@
 package com.example.foodhelper.data
 
 import android.util.Log
-import com.example.foodhelper.data.recipesearch.RecipeSearchDto
-import com.example.foodhelper.data.recipesearch.ResultSearchRecipeDto
+import com.example.foodhelper.data.util.ApiResult
+import com.example.foodhelper.data.util.onError
+import com.example.foodhelper.data.util.onException
+import com.example.foodhelper.data.util.onSuccess
+import com.example.foodhelper.model.remote.recipesearch.RecipeSearchDto
+import com.example.foodhelper.model.remote.recipesearch.ResultSearchRecipeDto
 import com.example.foodhelper.model.RecipePreview
 import javax.inject.Inject
 import kotlin.math.roundToInt
@@ -17,14 +21,23 @@ class RecipeRepository @Inject constructor(
         diets: List<String>? = null,
         intolerances: List<String>? = null,
     ): List<RecipePreview>? {
-        val result = recipesRemoteDataSource.searchRecipe(
+        val result: ApiResult<RecipeSearchDto> = recipesRemoteDataSource.searchRecipe(
             query,
             cuisines?.joinToString(","),
             diets?.joinToString(","),
             intolerances?.joinToString(",")
         )
-        Log.d(TAG, "searchRecipes: result: \n ${result.body()}")
-        return result.body().toRecipePreviewList()
+        var list: List<RecipePreview>? = listOf()
+        result.onSuccess {
+            list = it.toRecipePreviewList()
+        }.onError { code, message ->
+            Log.d(TAG, "Search Error: $code $message")
+        }.onException {
+            Log.d(TAG, "Search exception : ${it.printStackTrace()}")
+        }
+
+
+        return list
     }
 
     companion object {

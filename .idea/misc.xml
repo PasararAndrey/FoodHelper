@@ -17,6 +17,7 @@
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/fragment_recipe_search.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/rv_filter_item.xml" value="0.67" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/rv_search_recipe.xml" value="0.2553191489361702" />
+        <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/search_recipe_empty_list.xml" value="0.24094202898550723" />
         <entry key="..\:/AndroidProjects/FoodHelper/app/src/main/res/layout/search_recipe_not_found.xml" value="0.2640625" />
       </map>
     </option>

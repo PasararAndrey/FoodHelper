@@ -1,6 +1,7 @@
 package com.example.foodhelper.data
 
-import com.example.foodhelper.data.recipesearch.RecipeSearchDto
+import com.example.foodhelper.data.util.ApiResult
+import com.example.foodhelper.model.remote.recipesearch.RecipeSearchDto
 import com.example.foodhelper.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -17,7 +18,7 @@ class RecipesRemoteDataSource @Inject constructor(
         cuisines: String? = null,
         diets: String? = null,
         intolerances: String? = null,
-    ): Response<RecipeSearchDto> {
+    ): ApiResult<RecipeSearchDto> {
         return withContext(ioDispatcher) {
             recipesApi.searchRecipes(
                 searchQuery = query,
