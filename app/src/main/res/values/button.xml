@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.FoodHelper.Button.SearchReset" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FoodHelper.Button.SearchReset</item>
+        <item name="android:textAppearance">@style/TextAppearance.FoodHelper.Button.SearchActions</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.FoodHelper.SmallComponent.SearchActions</item>
+    </style>
+
+    <style name="Widget.FoodHelper.Button.SearchApply" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FoodHelper.Button.SearchApply</item>
+        <item name="android:textAppearance">@style/TextAppearance.FoodHelper.Button.SearchActions</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.FoodHelper.SmallComponent.SearchActions</item>
+    </style>
+
+
+    <style name="ThemeOverlay.FoodHelper.Button.SearchReset" parent="">
+        <item name="colorPrimary">@color/vulcan</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.FoodHelper.Button.SearchApply" parent="">
+        <item name="colorPrimary">@color/bice_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.FoodHelper.Button.SearchActions" parent="TextAppearance.FoodHelper.Button">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="ShapeAppearance.FoodHelper.SmallComponent.SearchActions" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">32dp</item>
+    </style>
+</resources>

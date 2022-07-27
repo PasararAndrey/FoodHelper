@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.FoodHelper.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+        <item name="searchHintIcon">@drawable/ic_baseline_search_24</item>
+        <item name="closeIcon">@drawable/ic_baseline_close_24</item>
+        <item name="android:background">@drawable/bg_searchview</item>
+    </style>
+</resources>

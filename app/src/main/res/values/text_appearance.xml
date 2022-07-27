@@ -1,0 +1,67 @@
+<resources>
+    <style name="TextAppearance.FoodHelper.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">97sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">61sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">48sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="TextAppearance.FoodHelper.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
