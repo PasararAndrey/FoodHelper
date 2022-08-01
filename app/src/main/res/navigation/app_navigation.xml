@@ -7,17 +7,20 @@
 
     <fragment
         android:id="@+id/recipeSearchFragment"
-        android:name="com.example.foodhelper.ui.search.RecipeSearchFragment"
+        android:name="com.example.foodhelper.ui.searchrecipes.RecipeSearchFragment"
         android:label="RecipeSearchFragment"
         tools:layout="@layout/fragment_recipe_search">
 
         <action
             android:id="@+id/action_recipeSearchFragment_to_filterSearchFragment"
             app:destination="@id/filterSearchFragment" />
+        <action
+            android:id="@+id/action_recipeSearchFragment_to_recipeDetailsFragment"
+            app:destination="@id/recipeDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/filterSearchFragment"
-        android:name="com.example.foodhelper.ui.search.FilterSearchFragment"
+        android:name="com.example.foodhelper.ui.searchrecipes.FilterSearchFragment"
         android:label="FilterSearchFragment"
         tools:layout="@layout/fragment_filter_search">
         <action
@@ -25,6 +28,17 @@
             app:destination="@id/recipeSearchFragment"
             app:popUpTo="@id/recipeSearchFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailsFragment"
+        android:name="com.example.foodhelper.ui.recipedetails.RecipeDetailsFragment"
+        android:label="RecipeDetailsFragment"
+        tools:layout="@layout/fragment_recipe_details" >
+        <argument android:name="recipeId"
+            app:nullable="false"
+            app:argType="integer"
+            android:defaultValue="-1"
+            />
     </fragment>
 
 

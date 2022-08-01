@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.search
+package com.example.foodhelper.ui.searchrecipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

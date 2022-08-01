@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.search
+package com.example.foodhelper.ui.searchrecipes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,6 @@ import com.example.foodhelper.data.RecipeRepository
 import com.example.foodhelper.model.FilterSearchItem
 import com.example.foodhelper.model.RecipePreview
 import kotlinx.coroutines.launch
-import org.w3c.dom.ls.LSException
 import javax.inject.Inject
 
 class RecipeSearchViewModel @Inject constructor(
