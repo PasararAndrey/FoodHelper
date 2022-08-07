@@ -1,11 +1,12 @@
 package com.example.foodhelper.data
 
+import com.example.foodhelper.data.recipe.remote.RecipeAPi
 import com.example.foodhelper.data.util.ApiResult
 import com.example.foodhelper.model.remote.recipesearch.RecipeSearchDto
 import com.example.foodhelper.di.IoDispatcher
+import com.example.foodhelper.model.remote.recipedetails.RecipeDetailsDto
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import retrofit2.Response
 import javax.inject.Inject
 
 class RecipesRemoteDataSource @Inject constructor(
@@ -20,12 +21,13 @@ class RecipesRemoteDataSource @Inject constructor(
         intolerances: String? = null,
     ): ApiResult<RecipeSearchDto> {
         return withContext(ioDispatcher) {
-            recipesApi.searchRecipes(
-                searchQuery = query,
-                cuisines = cuisines,
-                diets = diets,
-                intolerances = intolerances
-            )
+            recipesApi.searchRecipes(query, cuisines, diets, intolerances)
+        }
+    }
+
+    suspend fun getRecipeDetails(recipeId: Int):ApiResult<RecipeDetailsDto> {
+        return withContext(ioDispatcher) {
+            recipesApi.getRecipeDetails(recipeId)
         }
     }
 

@@ -7,7 +7,7 @@ data class RecipeDetails(
     val general: RecipeGeneral,
     val ingredients: List<RecipeIngredient>,
     val steps: List<RecipeStep>,
-    val nutrition: RecipeNutrition,
+    val nutritions: List<RecipeNutrition>,
 )
 
 data class RecipeGeneral(
@@ -26,7 +26,7 @@ data class RecipeIngredient(
     val image: String,
     val name: String,
     val ingredientMeasures: IngredientMeasures,
-    val nutrients: List<IngredientNutrients>,
+    val nutrients: List<IngredientNutrients>?,
 )
 
 data class IngredientNutrients(
@@ -43,7 +43,6 @@ data class IngredientMeasures(
 
 data class IngredientMeasure(
     val amount: Double,
-    val unitLong: String,
     val unitShort: String,
 )
 
