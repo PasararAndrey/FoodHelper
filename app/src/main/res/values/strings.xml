@@ -8,5 +8,5 @@
     <string name="rv_search_recipe_calories">calories: %s</string>
     <string name="rv_search_recipe_protein_default">protein: not defined</string>
     <string name="rv_search_recipe_protein">protein: %s</string>
-    <string name="tv_recipe_step">%d) %s</string>
+    <string name="tv_recipe_details_step">%d) %s</string>
 </resources>
