@@ -5,4 +5,27 @@
         <item name="android:textAppearance">@style/TextAppearance.FoodHelper.Body1</item>
         <item name="android:textColor">@color/bice_green</item>
     </style>
+
+    <style name="Widget.FoodHelper.TextView.OutLined" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.FoodHelper.Caption</item>
+        <item name="android:background">@drawable/bg_item_main_style_outlined</item>
+    </style>
+
+    <style name="Widget.FoodHelper.TextView.OutLined.RecipeOverview" parent="Widget.FoodHelper.TextView.OutLined">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Widget.FoodHelper.TextView.Filled" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.FoodHelper.Caption</item>
+        <item name="android:background">@drawable/bg_item_main_style_filled</item>
+    </style>
+
+    <style name="Widget.FoodHelper.TextView.Filled.RecipeOverview" parent="Widget.FoodHelper.TextView.Filled">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
 </resources>
