@@ -3,7 +3,6 @@ package com.example.foodhelper.ui.recipedetails
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -11,6 +10,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.foodhelper.R
 import com.example.foodhelper.ViewModelFactory
 import com.example.foodhelper.databinding.FragmentRecipeDetailsBinding
+import com.example.foodhelper.ui.recipedetails.overview.OverviewFragment
+import com.example.foodhelper.ui.recipedetails.steps.StepsFragment
 import com.example.foodhelper.util.applicationComponent
 import com.google.android.material.tabs.TabLayoutMediator
 import javax.inject.Inject
@@ -66,5 +67,4 @@ class DetailsPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
             else -> NutritionFragment()
         }
     }
-
 }

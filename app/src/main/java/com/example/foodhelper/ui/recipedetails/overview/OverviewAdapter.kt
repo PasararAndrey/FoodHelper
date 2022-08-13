@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.recipedetails
+package com.example.foodhelper.ui.recipedetails.overview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

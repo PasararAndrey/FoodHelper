@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.recipedetails
+package com.example.foodhelper.ui.recipedetails.overview
 
 import android.content.Context
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.foodhelper.R
 import com.example.foodhelper.ViewModelFactory
 import com.example.foodhelper.databinding.FragmentOverviewBinding
+import com.example.foodhelper.ui.recipedetails.RecipeDetailsViewModel
 import com.example.foodhelper.util.applicationComponent
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
@@ -75,6 +75,4 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
