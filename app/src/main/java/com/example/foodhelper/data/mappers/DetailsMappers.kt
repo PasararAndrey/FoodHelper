@@ -1,6 +1,6 @@
 package com.example.foodhelper.data.mappers
 
-import com.example.foodhelper.model.remote.*
+import com.example.foodhelper.model.*
 import com.example.foodhelper.model.remote.recipedetails.*
 
 fun RecipeDetailsDto.toRecipeDetails(): RecipeDetails {
@@ -23,8 +23,12 @@ private fun RecipeDetailsDto.recipeGeneral(): RecipeGeneral {
 }
 
 private fun RecipeDetailsDto.recipeSteps(): List<RecipeStep> {
-    return this.analyzedInstructions.first().steps.map { stepDto ->
-        stepDto.toRecipeStep()
+    if (this.analyzedInstructions.isNotEmpty()) {
+        return this.analyzedInstructions.first().steps.map { stepDto ->
+            stepDto.toRecipeStep()
+        }
+    } else {
+        return emptyList()
     }
 }
 

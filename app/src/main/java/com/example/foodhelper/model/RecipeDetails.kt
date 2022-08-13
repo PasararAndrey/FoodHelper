@@ -1,6 +1,4 @@
-package com.example.foodhelper.model.remote
-
-import com.google.gson.annotations.SerializedName
+package com.example.foodhelper.model
 
 
 data class RecipeDetails(
@@ -23,7 +21,7 @@ data class RecipeGeneral(
 
 data class RecipeIngredient(
     val ingredientId: Int,
-    val image: String,
+    val image: String?,
     val name: String,
     val ingredientMeasures: IngredientMeasures,
     val nutrients: List<IngredientNutrients>?,

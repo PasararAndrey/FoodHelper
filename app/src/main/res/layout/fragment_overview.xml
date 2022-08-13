@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="4dp"
-    android:layout_marginEnd="4dp"
     android:orientation="vertical">
 
     <TextView
@@ -13,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.FoodHelper.Headline5"
@@ -38,6 +36,7 @@
             style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
+            android:layout_marginStart="8dp"
             android:text="@string/tv_overview_serves"
             app:drawableStartCompat="@drawable/ic_baseline_person_24"
             tools:text="Serves 4" />
@@ -52,6 +51,7 @@
             style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/tv_overview_ready_minutes"
             app:drawableStartCompat="@drawable/ic_baseline_access_time_filled_24"
             tools:text="Ready in 15 minutes" />
