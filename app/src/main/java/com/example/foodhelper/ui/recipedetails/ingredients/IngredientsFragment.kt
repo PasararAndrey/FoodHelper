@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.recipedetails
+package com.example.foodhelper.ui.recipedetails.ingredients
 
 import android.os.Bundle
 import android.view.View
