@@ -10,6 +10,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.foodhelper.R
 import com.example.foodhelper.ViewModelFactory
 import com.example.foodhelper.databinding.FragmentRecipeDetailsBinding
+import com.example.foodhelper.ui.recipedetails.ingredients.IngredientsFragment
 import com.example.foodhelper.ui.recipedetails.overview.OverviewFragment
 import com.example.foodhelper.ui.recipedetails.steps.StepsFragment
 import com.example.foodhelper.util.applicationComponent

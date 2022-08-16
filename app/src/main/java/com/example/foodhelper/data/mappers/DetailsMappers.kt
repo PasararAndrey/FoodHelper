@@ -32,9 +32,9 @@ private fun RecipeDetailsDto.recipeSteps(): List<RecipeStep> {
     }
 }
 
-private fun RecipeDetailsDto.recipeIngredients(): List<RecipeIngredient> {
+private fun RecipeDetailsDto.recipeIngredients(): List<RecipeIngredientWithMeasures> {
     return this.extendedIngredients.map { ingredient ->
-        RecipeIngredient(ingredient.id,
+        RecipeIngredientWithMeasures(ingredient.id,
             ingredient.image,
             ingredient.name,
             ingredient.measures.toIngredientMeasures(),
@@ -65,11 +65,12 @@ private fun RecipeDetailsDto.findIngredientNutrientsDto(ingredient: ExtendedIngr
 
 private fun MeasuresDto.toIngredientMeasures(): IngredientMeasures {
     return IngredientMeasures(
-        usMeasure = IngredientMeasure(this.us.amount, this.us.unitShort),
-        metricMeasure = IngredientMeasure(this.metric.amount, this.metric.unitShort)
+        usMeasure = IngredientMeasure(this.us.amount, this.us.unitShort ?: ""),
+        metricMeasure = IngredientMeasure(this.metric.amount, this.metric.unitShort ?: "")
     )
 }
 
 private fun StepDto.toRecipeStep(): RecipeStep {
     return RecipeStep(this.number, this.step)
 }
+

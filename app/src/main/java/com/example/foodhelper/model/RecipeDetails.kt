@@ -3,7 +3,7 @@ package com.example.foodhelper.model
 
 data class RecipeDetails(
     val general: RecipeGeneral,
-    val ingredients: List<RecipeIngredient>,
+    val ingredients: List<RecipeIngredientWithMeasures>,
     val steps: List<RecipeStep>,
     val nutritions: List<RecipeNutrition>,
 )
@@ -19,11 +19,19 @@ data class RecipeGeneral(
 )
 
 
-data class RecipeIngredient(
+data class RecipeIngredientWithMeasures(
     val ingredientId: Int,
     val image: String?,
     val name: String,
     val ingredientMeasures: IngredientMeasures,
+    val nutrients: List<IngredientNutrients>?,
+)
+
+data class RecipeIngredient(
+    val ingredientId: Int,
+    val image: String?,
+    val name: String,
+    val ingredientMeasure: IngredientMeasure,
     val nutrients: List<IngredientNutrients>?,
 )
 
@@ -40,7 +48,7 @@ data class IngredientMeasures(
 )
 
 data class IngredientMeasure(
-    val amount: Double,
+    var amount: Double,
     val unitShort: String,
 )
 

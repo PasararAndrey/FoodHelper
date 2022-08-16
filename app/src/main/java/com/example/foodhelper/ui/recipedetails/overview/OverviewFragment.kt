@@ -44,7 +44,7 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
     }
 
     private fun setupObservingGeneralRecipeData() {
-        mViewModel.currentOverview.observe(viewLifecycleOwner) { recipeGeneral ->
+        mViewModel.overview.observe(viewLifecycleOwner) { recipeGeneral ->
             binding.apply {
                 dietsAdapter.setData(recipeGeneral.diets)
                 cuisinesAdapter.setData(recipeGeneral.cuisines)

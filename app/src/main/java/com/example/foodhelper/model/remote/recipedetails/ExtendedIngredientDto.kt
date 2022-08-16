@@ -27,5 +27,5 @@ data class ExtendedIngredientDto(
     @SerializedName("originalName")
     val originalName: String,
     @SerializedName("unit")
-    val unit: String
+    val unit: String?
 )

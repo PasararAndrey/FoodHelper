@@ -7,7 +7,7 @@ data class MetricDto(
     @SerializedName("amount")
     val amount: Double,
     @SerializedName("unitLong")
-    val unitLong: String,
+    val unitLong: String?,
     @SerializedName("unitShort")
-    val unitShort: String
+    val unitShort: String?
 )

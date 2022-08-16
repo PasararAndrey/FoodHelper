@@ -15,7 +15,6 @@
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
             style="@style/Widget.FoodHelper.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -31,6 +30,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
+            android:id="@+id/rg_measures"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -38,6 +38,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_us"
                 style="@style/Widget.FoodHelper.RadioButton.Metrics"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -47,6 +48,7 @@
 
 
             <RadioButton
+                android:id="@+id/rb_metric"
                 style="@style/Widget.FoodHelper.RadioButton.Metrics"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -56,6 +58,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -38,7 +38,7 @@ class StepsFragment : Fragment(R.layout.fragment_steps) {
     }
 
     private fun setupObservingRecipeSteps() {
-        mViewModel.currentSteps.observe(viewLifecycleOwner) { newSteps ->
+        mViewModel.steps.observe(viewLifecycleOwner) { newSteps ->
             stepsAdapter.setData(newSteps)
         }
     }
