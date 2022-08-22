@@ -7,7 +7,7 @@ private fun RecipeIngredientWithMeasures.getRecipeIngredientByMeasure(measure: M
         this.ingredientId,
         this.image,
         this.name,
-        this.ingredientMeasures.getMeasure(measure),
+        this.ingredientMeasures.getMeasure(measure).copy(),
         this.nutrients
     )
 }

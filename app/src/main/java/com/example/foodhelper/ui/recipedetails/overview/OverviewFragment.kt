@@ -52,7 +52,6 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
                 tvRecipeServings.text = resources.getString(R.string.tv_overview_serves, recipeGeneral.servings)
                 tvRecipeReadyInMinutes.text = resources.getString(R.string.tv_overview_ready_minutes, recipeGeneral.readyInMinutes)
                 Picasso.get().load(recipeGeneral.image).into(ivRecipeImage)
-
             }
         }
     }

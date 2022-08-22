@@ -7,15 +7,19 @@
     android:orientation="horizontal">
 
     <ImageView
+        android:id="@+id/ingredient_image"
         android:layout_width="48dp"
         android:layout_height="match_parent"
         tools:src="@drawable/ic_launcher_foreground" />
 
     <TextView
+        android:id="@+id/ingredient_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
         android:gravity="center_vertical"
+        android:text="@string/rv_ingredients_not_provided"
         android:textAppearance="@style/TextAppearance.FoodHelper.Body1"
         tools:text="237  milliliters shredded cheese" />
 </LinearLayout>

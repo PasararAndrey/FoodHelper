@@ -16,7 +16,20 @@ data class RecipeGeneral(
     val readyInMinutes: Int,
     val diets: List<String>,
     val cuisines: List<String>,
-)
+) {
+    override fun toString(): String {
+        return """RecipeGeneral(
+            recipeId = $recipeId
+            title = $title
+            image = $image
+            servings = $servings
+            readyInMinutes = $readyInMinutes
+            diets = $diets
+            cuisines = $cuisines
+            )
+        """
+    }
+}
 
 
 data class RecipeIngredientWithMeasures(
@@ -25,7 +38,29 @@ data class RecipeIngredientWithMeasures(
     val name: String,
     val ingredientMeasures: IngredientMeasures,
     val nutrients: List<IngredientNutrients>?,
-)
+) {
+    override fun toString(): String {
+        return """
+            RecipeGeneral(
+            ingredientId = $ingredientId
+            name = $name
+            image = $image
+            ingredientMeasures = $ingredientMeasures
+            nutrients = $nutrients
+            )
+        """
+    }
+
+    fun toStringMeasure(): String {
+        return """
+            RecipeGeneral(
+            ingredientId = $ingredientId
+            ingredientMeasures = $ingredientMeasures
+            )
+        """
+    }
+}
+
 
 data class RecipeIngredient(
     val ingredientId: Int,
@@ -33,11 +68,25 @@ data class RecipeIngredient(
     val name: String,
     val ingredientMeasure: IngredientMeasure,
     val nutrients: List<IngredientNutrients>?,
-)
+) {
+    override fun toString(): String {
+        return """
+            RecipeIngredient(
+            recipeId = $ingredientId
+            image = $image
+            name = $name
+            ingredientMeasure = $ingredientMeasure
+            nutrients = $nutrients
+            )
+        """
+    }
+
+}
+
 
 data class IngredientNutrients(
     val nutrientName: String,
-    val amount: Double,
+    val amount: Float,
     val unit: String,
 )
 
@@ -48,7 +97,7 @@ data class IngredientMeasures(
 )
 
 data class IngredientMeasure(
-    var amount: Double,
+    var amount: Float,
     val unitShort: String,
 )
 
@@ -59,7 +108,7 @@ data class RecipeStep(
 
 
 data class RecipeNutrition(
-    val amount: Double,
+    val amount: Float,
     val name: String,
     val unit: String,
 )

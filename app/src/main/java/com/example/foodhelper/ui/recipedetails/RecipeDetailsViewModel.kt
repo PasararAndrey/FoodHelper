@@ -27,55 +27,59 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepository: R
     private var _steps = MutableLiveData<List<RecipeStep>>()
     val steps: LiveData<List<RecipeStep>> get() = _steps
 
-    private var _servings = 1
-    val servings: Int get() = _servings
 
+    private var currentServings = 1
+    private var currentMeasure = Measure.METRIC
 
     fun getRecipe(recipeId: Int) {
         viewModelScope.launch {
             val recipe: RecipeDetails? = recipeRepository.getRecipeDetails(recipeId)
             if (recipe != null) {
-                Timber.tag(TAG).d("Get recipe general: ${recipe.general}")
+                Timber.tag(TAG).d("Result of getting recipe by id. General info \n${recipe.general}")
                 _overview.value = recipe.general
                 _nutrition.value = recipe.nutritions
                 ingredientsData = recipe.ingredients
                 _steps.value = recipe.steps
-                _servings = recipe.general.servings
+                currentServings = recipe.general.servings
             }
         }
     }
 
-    fun updateMeasureState(measure: Measure) {
-        val ingredientsByMeasure: List<RecipeIngredient> = ingredientsData.getRecipeIngredientsByMeasure(measure)
-        val ingredients = calculateIngredientsAmountByServings(_servings, _servings, ingredientsByMeasure)
-        _ingredients.value = ingredients
-        Timber.tag(TAG).d(measure.toString())
-        Timber.tag(TAG).d(_ingredients.value.toString())
+    fun updateServings(newServingsAmount: Int) {
+        currentServings = newServingsAmount
+        Timber.tag(TAG).d("Updated value of serving: $currentServings")
+        updateIngredients()
     }
 
-    private fun calculateIngredientsAmountByServings(
-        previousServingsAmount: Int,
-        newServingsAmount: Int,
+    private fun updateIngredients() {
+        Timber.tag(TAG).d("Default first ingredient measure before all: ${ingredientsData.first().toStringMeasure()}")
+        val ingredientsByMeasure: List<RecipeIngredient> = ingredientsData.getRecipeIngredientsByMeasure(currentMeasure)
+        Timber.tag(TAG).d("Default first ingredient measure after measuring: ${ingredientsData.first().toStringMeasure()}")
+        val ingredients = calculateIngredientsAmount(ingredientsByMeasure)
+        Timber.tag(TAG).d("Default first ingredient measure after servings calculation: ${ingredientsData.first().toStringMeasure()}")
+        _ingredients.value = ingredients
+        Timber.tag(TAG).d("Default first ingredient measure after value updating: ${ingredientsData.first().toStringMeasure()}")
+    }
+
+
+    fun updateMeasure(measure: Measure) {
+        currentMeasure = measure
+        updateIngredients()
+    }
+
+    private fun calculateIngredientsAmount(
         ingredients: List<RecipeIngredient>,
     ): List<RecipeIngredient> {
-        val mIngredients = ingredients
-        if (previousServingsAmount == newServingsAmount) {
-            return mIngredients
-        } else {
-            mIngredients.forEach { recipeIngredient ->
-                recipeIngredient.ingredientMeasure.amount = recipeIngredient.ingredientMeasure.amount * newServingsAmount / previousServingsAmount
-            }
-            return mIngredients
-        }
-    }
+        val mIngredients = ingredients.map { it.copy() }
 
-    fun updateIngredientsAmount(previousServingsAmount: Int, newServingsAmount: Int) {
-        val currentIngredients = _ingredients.value ?: emptyList()
-        val calculatedIngredients = calculateIngredientsAmountByServings(previousServingsAmount, newServingsAmount, currentIngredients)
-        _servings = newServingsAmount
-        _ingredients.value = calculatedIngredients
-        Timber.tag(TAG).d(_servings.toString())
-        Timber.tag(TAG).d(_ingredients.value.toString())
+        val initialServings = _overview.value?.servings ?: kotlin.run {
+            Timber.tag(TAG).d("No initial servings provided")
+            return emptyList()
+        }
+        mIngredients.forEach { recipeIngredient: RecipeIngredient ->
+            recipeIngredient.ingredientMeasure.amount = recipeIngredient.ingredientMeasure.amount / initialServings * currentServings
+        }
+        return mIngredients
     }
 
     companion object {

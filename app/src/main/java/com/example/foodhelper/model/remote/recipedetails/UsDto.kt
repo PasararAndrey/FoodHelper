@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class UsDto(
     @SerializedName("amount")
-    val amount: Double,
+    val amount: Float,
     @SerializedName("unitLong")
     val unitLong: String?,
     @SerializedName("unitShort")

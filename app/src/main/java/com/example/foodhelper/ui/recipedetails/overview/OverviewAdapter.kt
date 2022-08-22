@@ -12,7 +12,6 @@ class OverviewAdapter @Inject constructor() : RecyclerView.Adapter<OverviewAdapt
     private val mItemsList: MutableList<String> = LinkedList()
 
     fun setData(newItems: List<String>) {
-        Timber.tag(TAG).d("setting new data to list: $newItems")
         mItemsList.clear()
         mItemsList.addAll(newItems)
         notifyDataSetChanged()

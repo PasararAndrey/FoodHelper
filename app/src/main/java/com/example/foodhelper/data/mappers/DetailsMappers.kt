@@ -35,7 +35,7 @@ private fun RecipeDetailsDto.recipeSteps(): List<RecipeStep> {
 private fun RecipeDetailsDto.recipeIngredients(): List<RecipeIngredientWithMeasures> {
     return this.extendedIngredients.map { ingredient ->
         RecipeIngredientWithMeasures(ingredient.id,
-            ingredient.image,
+            "https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image?.trim()}",
             ingredient.name,
             ingredient.measures.toIngredientMeasures(),
             getIngredientNutrients(ingredient))

@@ -14,4 +14,6 @@
     <string name="tv_overview_ready_minutes">Ready in %d  minutes</string>
     <string name="divider_tv_overview_diets">Diets</string>
     <string name="cuisines_tv_overview_diets">Cuisines</string>
+    <string name="rv_ingredients_not_provided">Not provided</string>
+    <string name="rv_ingredients_description">%s %s %s</string>
 </resources>
