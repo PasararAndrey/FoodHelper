@@ -16,4 +16,7 @@
     <string name="cuisines_tv_overview_diets">Cuisines</string>
     <string name="rv_ingredients_not_provided">Not provided</string>
     <string name="rv_ingredients_description">%s %s %s</string>
+    <string name="tv_overview_fat">%.2f total fat</string>
+    <string name="tv_overview_calories">%.2f calories</string>
+    <string name="cd_tv_overview_recipe_image">recipe image</string>
 </resources>

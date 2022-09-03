@@ -42,8 +42,7 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
             when (position) {
                 0 -> tab.text = "Overview"
                 1 -> tab.text = "Elements"
-                2 -> tab.text = "Cooking"
-                else -> tab.text = "Nutrition"
+                else -> tab.text = "Cooking"
             }
         }.attach()
 
@@ -57,15 +56,14 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
 
 class DetailsPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
-        return 4
+        return 3
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> OverviewFragment()
             1 -> IngredientsFragment()
-            2 -> StepsFragment()
-            else -> NutritionFragment()
+            else -> StepsFragment()
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.foodhelper.data.mappers
 
 import com.example.foodhelper.model.*
-import com.example.foodhelper.model.remote.recipedetails.*
+import com.example.foodhelper.model.remote.recipedetails.MeasuresDto
+import com.example.foodhelper.model.remote.recipedetails.RecipeDetailsDto
+import com.example.foodhelper.model.remote.recipedetails.StepDto
 
 fun RecipeDetailsDto.toRecipeDetails(): RecipeDetails {
     return RecipeDetails(
@@ -19,7 +21,17 @@ private fun RecipeDetailsDto.recipeNutritions(): List<RecipeNutrition> {
 }
 
 private fun RecipeDetailsDto.recipeGeneral(): RecipeGeneral {
-    return RecipeGeneral(this.id, this.title, this.image, this.servings, this.readyInMinutes, this.diets, this.cuisines)
+    return RecipeGeneral(
+        recipeId = this.id,
+        title = this.title,
+        image = this.image,
+        servings = this.servings,
+        readyInMinutes = this.readyInMinutes,
+        diets = this.diets,
+        cuisines = this.cuisines,
+        fats = this.nutrition.nutrients.find { nutrient -> nutrient.name == "Fat" }?.amount ?: 0F,
+        calories = this.nutrition.nutrients.find { nutrient -> nutrient.name == "Calories" }?.amount ?: 0F
+    )
 }
 
 private fun RecipeDetailsDto.recipeSteps(): List<RecipeStep> {
@@ -37,31 +49,10 @@ private fun RecipeDetailsDto.recipeIngredients(): List<RecipeIngredientWithMeasu
         RecipeIngredientWithMeasures(ingredient.id,
             "https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image?.trim()}",
             ingredient.name,
-            ingredient.measures.toIngredientMeasures(),
-            getIngredientNutrients(ingredient))
+            ingredient.measures.toIngredientMeasures()
+        )
     }
 }
-
-private fun RecipeDetailsDto.getIngredientNutrients(ingredient: ExtendedIngredientDto): List<IngredientNutrients>? {
-    return findIngredientNutrientsDto(ingredient).toIngredientNutrients()
-}
-
-
-private fun List<NutrientDto>?.toIngredientNutrients(): List<IngredientNutrients>? {
-    return this?.map {
-        it.toIngredientNutrient()
-    }
-}
-
-private fun NutrientDto.toIngredientNutrient(): IngredientNutrients {
-    return IngredientNutrients(this.name, this.amount, this.unit)
-}
-
-
-private fun RecipeDetailsDto.findIngredientNutrientsDto(ingredient: ExtendedIngredientDto): List<NutrientDto>? {
-    return this.nutrition.ingredients.find { ingredientDto: IngredientDto -> ingredientDto.id == ingredient.id }?.nutrients
-}
-
 
 private fun MeasuresDto.toIngredientMeasures(): IngredientMeasures {
     return IngredientMeasures(

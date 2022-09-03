@@ -1,95 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tv_recipe_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.FoodHelper.Headline5"
-        tools:text="Roast Chicken with Broccoli Rabe, Fingerling Potatoes and Garlic Parsley Jus" />
-
-    <ImageView
-        android:id="@+id/iv_recipe_image"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="TODO"
-        tools:src="@mipmap/ic_launcher_round" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_recipe_servings"
-            style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
+            android:id="@+id/tv_recipe_title"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:text="@string/tv_overview_serves"
-            app:drawableStartCompat="@drawable/ic_baseline_person_24"
-            tools:text="Serves 4" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.FoodHelper.Headline5"
+            tools:text="Roast Chicken with Broccoli Rabe, Fingerling Potatoes and Garlic Parsley Jus" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/iv_recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/cd_tv_overview_recipe_image"
+            tools:src="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/tv_recipe_ready_in_minutes"
-            style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/tv_overview_ready_minutes"
-            app:drawableStartCompat="@drawable/ic_baseline_access_time_filled_24"
-            tools:text="Ready in 15 minutes" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_recipe_servings"
+                style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/tv_overview_serves"
+                app:drawableStartCompat="@drawable/ic_baseline_person_24"
+                tools:text="Serves 4" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_recipe_ready_in_minutes"
+                style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/tv_overview_ready_minutes"
+                app:drawableStartCompat="@drawable/ic_baseline_access_time_filled_24"
+                tools:text="Ready in 15 minutes" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_calories"
+                style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/tv_overview_calories"
+                tools:text="38 calories" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_fat"
+                style="@style/Widget.FoodHelper.TextView.OutLined.RecipeOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/tv_overview_fat"
+                tools:text="0.84g total fat" />
+        </LinearLayout>
+
+        <com.example.foodhelper.ui.customview.DividerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+
+            android:text="@string/divider_tv_overview_diets" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recipe_diets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:spanCount="3"
+            tools:itemCount="11"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/rv_overview_item" />
+
+        <com.example.foodhelper.ui.customview.DividerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="@string/cuisines_tv_overview_diets" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recipe_cuisines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:spanCount="3"
+            tools:itemCount="11"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/rv_overview_item" />
     </LinearLayout>
 
-    <com.example.foodhelper.ui.customview.DividerTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/divider_tv_overview_diets" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_recipe_diets"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:spanCount="3"
-        tools:itemCount="11"
-        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/rv_overview_item" />
-
-    <com.example.foodhelper.ui.customview.DividerTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/cuisines_tv_overview_diets" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_recipe_cuisines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:spanCount="3"
-        tools:itemCount="11"
-        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/rv_overview_item" />
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -16,9 +16,6 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepository: R
     private var _overview = MutableLiveData<RecipeGeneral>()
     val overview: LiveData<RecipeGeneral> get() = _overview
 
-    private var _nutrition = MutableLiveData<List<RecipeNutrition>>()
-    val nutrition: LiveData<List<RecipeNutrition>> get() = _nutrition
-
     private var ingredientsData: List<RecipeIngredientWithMeasures> = emptyList()
 
     private var _ingredients = MutableLiveData<List<RecipeIngredient>>()
@@ -37,7 +34,6 @@ class RecipeDetailsViewModel @Inject constructor(private val recipeRepository: R
             if (recipe != null) {
                 Timber.tag(TAG).d("Result of getting recipe by id. General info \n${recipe.general}")
                 _overview.value = recipe.general
-                _nutrition.value = recipe.nutritions
                 ingredientsData = recipe.ingredients
                 _steps.value = recipe.steps
                 currentServings = recipe.general.servings

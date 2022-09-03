@@ -16,6 +16,8 @@ data class RecipeGeneral(
     val readyInMinutes: Int,
     val diets: List<String>,
     val cuisines: List<String>,
+    val fats: Float,
+    val calories: Float,
 ) {
     override fun toString(): String {
         return """RecipeGeneral(
@@ -37,7 +39,6 @@ data class RecipeIngredientWithMeasures(
     val image: String?,
     val name: String,
     val ingredientMeasures: IngredientMeasures,
-    val nutrients: List<IngredientNutrients>?,
 ) {
     override fun toString(): String {
         return """
@@ -46,7 +47,6 @@ data class RecipeIngredientWithMeasures(
             name = $name
             image = $image
             ingredientMeasures = $ingredientMeasures
-            nutrients = $nutrients
             )
         """
     }
@@ -67,7 +67,6 @@ data class RecipeIngredient(
     val image: String?,
     val name: String,
     val ingredientMeasure: IngredientMeasure,
-    val nutrients: List<IngredientNutrients>?,
 ) {
     override fun toString(): String {
         return """
@@ -76,7 +75,6 @@ data class RecipeIngredient(
             image = $image
             name = $name
             ingredientMeasure = $ingredientMeasure
-            nutrients = $nutrients
             )
         """
     }
