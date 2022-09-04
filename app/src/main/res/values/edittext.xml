@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.FoodHelper.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FoodHelper.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.FoodHelper.SmallComponent.TextInputLayout</item>
+        <item name="android:textColorHint">?attr/colorOnSurface</item>
+        <item name="hintTextColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.FoodHelper.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/bice_green</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+    </style>
+
+
+    <style name="ShapeAppearance.FoodHelper.SmallComponent.TextInputLayout" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+</resources>

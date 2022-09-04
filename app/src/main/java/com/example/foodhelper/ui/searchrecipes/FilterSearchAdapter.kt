@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.search
+package com.example.foodhelper.ui.searchrecipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -37,13 +37,13 @@ class FilterSearchAdapter(private val onClick: (position: Int, isChecked: Boolea
             binding.tvFilter.text = filterSearchItem.itemText
             if (filterSearchItem.isChecked) {
                 binding.tvFilter.apply {
-                    background = AppCompatResources.getDrawable(this@FilterViewHolder.itemView.context, R.drawable.bg_tv_filter_item_filled)
+                    background = AppCompatResources.getDrawable(this@FilterViewHolder.itemView.context, R.drawable.bg_item_main_style_filled)
                     setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
                 }
 
             } else {
                 binding.tvFilter.apply {
-                    background = AppCompatResources.getDrawable(this@FilterViewHolder.itemView.context, R.drawable.bg_tv_filter_item_outlined)
+                    background = AppCompatResources.getDrawable(this@FilterViewHolder.itemView.context, R.drawable.bg_item_main_style_outlined)
                     setTextColor(ResourcesCompat.getColor(resources, R.color.bice_green, null))
                 }
             }

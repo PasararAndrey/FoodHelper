@@ -1,9 +1,7 @@
-package com.example.foodhelper.ui.search
+package com.example.foodhelper.ui.searchrecipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +13,12 @@ import javax.inject.Inject
 
 
 class SearchRecipeAdapter @Inject constructor() : ListAdapter<RecipePreview, SearchRecipeAdapter.SearchViewHolder>(SearchDiffCallback()) {
+
+    private var onItemClickListener: ((recipeId: Int) -> Unit)? = null
+    fun setOnItemClickListener(listener: ((recipeId: Int) -> Unit)) {
+        onItemClickListener = listener
+    }
+
     inner class SearchViewHolder(private val binding: RvSearchRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(currentItem: RecipePreview) {
             binding.apply {
@@ -22,6 +26,9 @@ class SearchRecipeAdapter @Inject constructor() : ListAdapter<RecipePreview, Sea
                 tvRecipeCalories.text = binding.root.context.resources.getString(R.string.rv_search_recipe_calories, currentItem.calories)
                 tvRecipeProtein.text = binding.root.context.resources.getString(R.string.rv_search_recipe_protein, currentItem.protein)
                 Picasso.get().load(currentItem.previewImage).fit().centerCrop().into(ivRecipeImage)
+                root.setOnClickListener {
+                    onItemClickListener?.let { function -> function(currentItem.id) }
+                }
             }
         }
     }

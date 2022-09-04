@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.FoodHelper.TabLayout.RecipeDetails" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FoodHelper.TabLayout</item>
+        <item name="tabTextAppearance">@style/TextAppearance.FoodHelper.Button</item>
+    </style>
+
+    <style name="ThemeOverlay.FoodHelper.TabLayout" parent="">
+        <item name="colorPrimary">@color/bice_green</item>
+        <item name="colorSurface">@color/light_black</item>
+        <item name="colorOnSurface">@color/white</item>
+    </style>
+</resources>

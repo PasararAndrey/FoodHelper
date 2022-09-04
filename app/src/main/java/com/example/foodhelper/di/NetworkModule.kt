@@ -1,6 +1,6 @@
 package com.example.foodhelper.di
 
-import com.example.foodhelper.data.RecipeAPi
+import com.example.foodhelper.data.recipe.remote.RecipeAPi
 import com.example.foodhelper.data.calladapter.NetworkResultCallAdapterFactory
 import com.example.foodhelper.util.Constants
 import dagger.Module

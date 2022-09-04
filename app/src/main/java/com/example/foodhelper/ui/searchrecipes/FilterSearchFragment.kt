@@ -1,4 +1,4 @@
-package com.example.foodhelper.ui.search
+package com.example.foodhelper.ui.searchrecipes
 
 import android.content.Context
 import android.os.Bundle
